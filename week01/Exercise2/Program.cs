@@ -1,5 +1,10 @@
 using System;
 
+//
+// Geoffrey McIntyre
+// CSE210 Week 1 Exercise #2: Conditionals
+// 
+
 class Program
 {
     static void Main(string[] args)

@@ -1,4 +1,8 @@
 using System;
+//
+// Geoffrey McIntyre
+// CSE210 Week 1 Exercise #1: Variables and Input/Output
+// 
 
 class Program
 {
