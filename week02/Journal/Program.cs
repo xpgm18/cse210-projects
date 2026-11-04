@@ -1,3 +1,9 @@
+
+//
+// Week 2 Assignment/Project -- Journal Entries
+// Author: Geoffrey McIntyre
+//
+
 using System;
 
 class Program
