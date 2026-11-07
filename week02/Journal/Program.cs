@@ -3,7 +3,7 @@
 // Week 2 Assignment/Project -- Journal Entries
 // Author: Geoffrey McIntyre
 // Extensions: 
-//  1) Added 3 additional question to the list of possible prompts
+//  1) Added 3 additional questions to the list of possible prompts
 //  2) Added a catch: in case the user enters a bad file name, the pgm
 //     sends a msg and allows the user to try again
 //
