@@ -93,8 +93,6 @@ class Program
         e._promptText = newPrompt.GetRandomPrompt();
 
         string sysDate = GetFormattedSystemDate();
-        Console.WriteLine(sysDate);
-
         e._date = sysDate;
 
         Console.Write($"{e._promptText} ");
