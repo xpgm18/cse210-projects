@@ -77,12 +77,6 @@ class Program
         {
             Console.Write("Enter the name of your journal file: ");
             filename = Console.ReadLine();
-            if (!File.Exists(filename))
-            {
-                Console.WriteLine("Sorry, the file name you entered does not exist. Please try again.");
-                filename = null;
-                return;
-            }
         }
         j.SaveToFile(filename);
     }
