@@ -23,6 +23,7 @@ public class Journal
     }
     public void LoadFromFile(string filename)
     {
+        entries.Clear();        // Make sure the list is empty so the load is indeed fresh
         Console.WriteLine("Loading from file ...");
         string[] lines = System.IO.File.ReadAllLines(filename);
         foreach (string line in lines)
