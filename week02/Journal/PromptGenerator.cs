@@ -12,6 +12,9 @@ public class PromptGenerator
     // Otherwise, each instance would have it's own Random thing.
     private static Random randomGenerator = new Random();
 
+    // the below method "PromptGenerator"
+    //  1) has the same name as the class
+    //  2) is called a constructor to set initial values
     public PromptGenerator()
     {
         _prompts = new List<string>(); 
