@@ -1,3 +1,8 @@
+//
+// Author: Geoffrey McIntyre
+// Week 3 Fraction exercise
+//
+
 using System;
 
 class Program
