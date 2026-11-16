@@ -11,7 +11,7 @@ public class Scripture
     // private List<Word> _words;
     private List<Word> _words;
     // private string _passage;
-    private static Random randomGenerator = new Random();
+    private static Random _randomGenerator = new Random();
 
     // Here we pick up the desired passage of scripture and create a list of word
     // objects
@@ -60,7 +60,7 @@ public class Scripture
             // This construct is a little bit obtuse. It doesn't say Word.Hide(), does
             // it. But given that "visible" is a list of Word objects, it works out, and
             // the word object in _words is updated too.
-            visible[randomGenerator.Next(visible.Count)].Hide();
+            visible[_randomGenerator.Next(visible.Count)].Hide();
         }
     }
     public string GetDisplayText()

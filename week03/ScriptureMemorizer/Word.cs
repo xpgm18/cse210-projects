@@ -1,6 +1,8 @@
+using System;
 public class Word
 {
     private string _text;
+
     private bool _isHidden;
 
     public Word(string text)
@@ -26,6 +28,18 @@ public class Word
 
     public string GetDisplayText()
     {
-        return _isHidden ? new string('_', _text.Length) : _text;
+        if (!_isHidden)
+            return _text;
+
+        string hiddenText = "";
+        string singleCharacter;
+        for (int i = 0; i < _text.Length; i++)
+        {
+            singleCharacter = _text.Substring(i,1);
+            hiddenText += char.IsLetter(singleCharacter[0]) ? "_" : singleCharacter;
+        }
+        return hiddenText;  
+
+        // return _isHidden ? new string('_', _text.Length) : _text;
     }
 }
