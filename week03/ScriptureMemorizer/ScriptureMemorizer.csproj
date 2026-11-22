@@ -14,4 +14,22 @@
   </None>
   </ItemGroup>
 
+<ItemGroup>
+  <None Update="book-of-mormon-flat.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+  </ItemGroup>
+
+<ItemGroup>
+  <None Update="doctrine-and-covenants-flat.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+  </ItemGroup>
+
+<ItemGroup>
+  <None Update="pearl-of-great-price-flat.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+  </None>
+  </ItemGroup>
+
 </Project>

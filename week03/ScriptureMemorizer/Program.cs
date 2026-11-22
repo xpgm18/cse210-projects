@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 class Program
 {
-    static void Main(string[] args)d
+    static void Main(string[] args)
     {
         string userEntry = "";
         int numberToHide = 1;
@@ -25,7 +25,7 @@ class Program
         Console.WriteLine("   2) 'quit' to exit the pgm");
         Console.WriteLine("   3) Enter the KJV scripture verse or range of verses");
         Console.WriteLine("      NOTE: You MUST enter the full book name and verse(s) accurately!");
-        Console.WriteLine("      e.g. Matthew 5:5 or Genesis 8:1-5 or 1 John 1:3");
+        Console.WriteLine("      e.g. Matthew 5:5 or Genesis 8:1-5 or 1 John 1:3, or D&C 1:1, or 1 Nephi 1:1, or Moses 1:1");
         Console.WriteLine("Any deviation from the instructions causes unpredictable results.");
         // Console.WriteLine("You may alternatively also enter a number to indicate the number of words to hide at a time. Default is 1.")
 

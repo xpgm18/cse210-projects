@@ -5,12 +5,23 @@
 // Full disclosure:
 // The KJV file came from GitHub. The code to load the file and to dissect the user
 // desired verse or verses came from duck.ai, with many modifications by me,
-// as this code is more advanced than what we've learned so far.
+// as this code is more advanced than what we've learned so far. Ditto the Book
+// of Mormon, D&C, and Pearl of Great Price JSON files.
 //
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+// Used for Book of Mormon, D&C, and Pearl of Great Price JSON files.
+public class ScriptureFile
+{
+    public List<Verse> Verses { get; set; } = new();
+}
+public class Verse
+{
+    public string Reference { get; set; } = "";
+    public string Text { get; set; } = "";
+}
 public class Reference
 {
     private string _book;
@@ -21,12 +32,18 @@ public class Reference
     private bool _found = false;
     public Reference(string userEntry)
     {
+        // Load KJV verses: { "Genesis 1:1": "..." }
         string json = File.ReadAllText("verses-1769.json");
         Dictionary<string, string> verses = JsonSerializer.Deserialize<Dictionary<string, string>>(json)!;
         // Console.WriteLine("It looks like the load happened and it's complete");
         // Console.WriteLine($"Loaded {verses.Count} verses.");
         // Console.WriteLine(verses["Matthew 5:5"]);
         // Console.WriteLine($"verses[{_book} {_chapter}:{_verse} ]");
+
+        // Add verses from the other three LDS scripture files.
+        AddVersesFromFlatFile(verses, "book-of-mormon-flat.json");
+        AddVersesFromFlatFile(verses, "doctrine-and-covenants-flat.json");
+        AddVersesFromFlatFile(verses, "pearl-of-great-price-flat.json");
 
         // Split "Matthew 1:8-11" into book ("Matthew") and chapter:verses ("1:8-11").
         // LastIndexOf handles multi-word books such as "Song of Solomon" and "1 John". 
@@ -60,6 +77,35 @@ public class Reference
         _found = true;
         // Console.WriteLine($"{_book} {_chapter}:{_verse}-{_endVerse} {passage}");
     }
+
+    private static void AddVersesFromFlatFile(
+        Dictionary<string, string> verses,
+        string filePath)
+    {
+        string json = File.ReadAllText(filePath);
+
+        ScriptureFile? scriptureFile =
+            JsonSerializer.Deserialize<ScriptureFile>(json,
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+        if (scriptureFile?.Verses is null)
+        {
+            return;
+        }
+
+        foreach (Verse verse in scriptureFile.Verses)
+        {
+            if (!string.IsNullOrWhiteSpace(verse.Reference) &&
+                !string.IsNullOrWhiteSpace(verse.Text))
+            {
+                verses[verse.Reference] = verse.Text;
+            }
+        }
+    }
+
     public bool Found => _found;
     public string Passage => _passage;
     public string GetDisplayText()
