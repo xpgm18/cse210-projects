@@ -1,3 +1,15 @@
+//
+// Author: Geoffrey McIntyre
+// Week 5 Mindfulness Project
+// 
+// Main pgm:
+//
+// Extensions:
+//   1) The reflecting questions are asked only once. In the event that the pgm
+//      runs out of questions, the pgm ends the event. In other words, the activity
+//      ends when either the session duration expires, or the pgm runs out of 
+//      questions, whichever comes first
+//
 using System;
 
 class Program
